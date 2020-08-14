@@ -1,0 +1,30 @@
+{
+  "orgName": "Auth Handler Example",
+  "country": "US",
+  "edition": "Developer",
+  "description": "Communities Auth Handler",
+  "hasSampleData": false,
+  "language": "en_US",
+  "features": [
+    "Communities",
+    "ContactsToMultipleAccounts",
+    "PersonAccounts"
+   ],
+   "settings": {
+        "lightningExperienceSettings": {
+            "enableS1DesktopEnabled": true
+        },
+        "chatterSettings": {
+            "enableChatter": true
+        },
+        "communitiesSettings": {
+            "enableNetworksEnabled": true,
+            "enableCommunityWorkspaces" : true,
+            "enableEnablePRM" : true,
+            "enableNetPortalUserReportOpts" : true,
+            "enablePRMAccRelPref" : true,
+            "enableCspContactVisibilityPref" : true,
+            "enableCspNotesOnAccConPref" : true
+        }
+    }
+}
