@@ -4,6 +4,15 @@ public class PAAuthHandler_Test {
     private static testmethod void testCanCreateUser() {
         System.Assert(new PAAuthHandler().canCreateUser(getMockUserData()));
     }
+    private static testmethod void testCanCreateUserNegative() {
+        final Auth.UserData mockUserData = getMockUserData();
+		mockUserData.email=null;
+        Test.startTest();
+        System.Assert(!(new PAAuthHandler().canCreateUser(mockUserData))
+                         ,'Expected missing email to fail');
+        Test.stopTest();
+    }
+
     private static testmethod void testCreateUserCommunity() {
         final Auth.UserData mockUserData = getMockUserData();
         User result = new PAAuthHandler().createUser(NETWORKID, mockUserData);
@@ -13,6 +22,37 @@ public class PAAuthHandler_Test {
         System.AssertEquals(result.FirstName,mockUserData.FirstName,'First name does not match');
         System.AssertEquals(result.LastName,mockUserData.LastName,'Last name does not match');
         System.AssertEquals(result.Email,mockUserData.Email,'Email address does not match');       
+    }
+    private static testmethod void testCreateUserCommunityExists() {
+        final Auth.UserData mockUserData = getMockUserData();
+        // Pre-create the user
+        User existing = new PAAuthHandler().createUser(NETWORKID, mockUserData);
+        
+        
+        Test.startTest();
+        User result = new PAAuthHandler().createUser(NETWORKID, mockUserData);
+        Test.stopTest();
+        
+        // Make sure a 2nd invocation doesn't create another PersonAccount!
+        System.AssertEquals([Select Id 
+                             From Account 
+                             Where PersonEmail=:mockUserData.email].size()
+                            ,1
+                            ,'Should only be one Person registered!');
+
+        System.AssertEquals(result.Email,mockUserData.Email,'Email address does not match');       
+    }
+
+    private static testmethod void testCreateUserCommunityNegative() {
+        final Auth.UserData mockUserData = getMockUserData();
+        mockUserData.email=null;
+              
+        Test.startTest();
+        User result = new PAAuthHandler().createUser(NETWORKID, mockUserData);
+        Test.stopTest();
+        
+        System.AssertEquals(null,result,'Expected failure on missing email!');
+        
     }
 
     

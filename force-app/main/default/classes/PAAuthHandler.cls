@@ -30,7 +30,7 @@ global WITHOUT SHARING class PAAuthHandler  implements Auth.RegistrationHandler{
         for (String key : data.attributeMap.keySet()) {
             System.debug('Attribute: ' + key + ' : ' + data.attributeMap.get(key));
         }
-        return true;
+        return data.email != null; // We're going to require an email address to be present!
     }
     
     /**

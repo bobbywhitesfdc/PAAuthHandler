@@ -3,7 +3,7 @@
   "country": "US",
   "edition": "Developer",
   "description": "Communities Auth Handler",
-  "hasSampleData": false,
+  "hasSampleData": true,
   "language": "en_US",
   "features": [
     "Communities",

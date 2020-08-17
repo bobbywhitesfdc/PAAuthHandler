@@ -23,8 +23,8 @@
     <requireHttps>true</requireHttps>
     <requireInsecurePortalAccess>false</requireInsecurePortalAccess>
     <selfRegPage>CommunitiesSelfReg</selfRegPage>
-    <siteAdmin>test-trsiyfqkpesm@example.com</siteAdmin>
-    <siteGuestRecordDefaultOwner>test-trsiyfqkpesm@example.com</siteGuestRecordDefaultOwner>
+    <siteAdmin>replaceme@admin.example.com</siteAdmin>
+    <siteGuestRecordDefaultOwner>replaceme@admin.example.com</siteGuestRecordDefaultOwner>
     <siteType>ChatterNetwork</siteType>
     <subdomain>ruby-ruby-2928-dev-ed-173e9c50951</subdomain>
     <urlPathPrefix>customers</urlPathPrefix>
